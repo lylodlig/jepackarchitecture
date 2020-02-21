@@ -5,6 +5,13 @@ apply plugin: 'kotlin-kapt'
 
 apply plugin: 'kotlin-android-extensions'
 
+def buildTime() {
+    def date = new Date()
+    def formattedDate = date.format('yyyy_MM_dd')
+    return formattedDate
+}
+
+
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
     buildToolsVersion rootProject.ext.android["buildToolsVersion"]
@@ -16,6 +23,25 @@ android {
         versionName rootProject.ext.android["versionName"]
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+        release {
+            File strFile = new File("../eew.keystore")
+            storeFile file(strFile)
+            storePassword "Meihuan2020"
+            keyPassword "Meihuan2020"
+            keyAlias "key0"
+        }
+
+        debug {
+            File strFile = new File("../eew.keystore")
+            storeFile file(strFile)
+            storePassword "Meihuan2020"
+            keyPassword "Meihuan2020"
+            keyAlias "key0"
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false

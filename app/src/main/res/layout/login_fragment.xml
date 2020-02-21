@@ -10,7 +10,7 @@
 
         <variable
             name="model"
-            type="com.example.jepack_architecture.ui.login.LoginViewModel" />
+            type="com.huania.eew_bid.ui.login.LoginViewModel" />
     </data>
 
     <LinearLayout

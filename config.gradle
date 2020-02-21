@@ -2,7 +2,7 @@ ext {
     android = [
             compileSdkVersion: 29,
             buildToolsVersion: "29.0.2",
-            applicationId    : "com.example.jepack_architecture",
+            applicationId    : "com.huania.eew_bid",
             minSdkVersion    : 15,
             targetSdkVersion : 29,
             versionCode      : 1,
@@ -24,6 +24,7 @@ ext {
             viewpager2 : "1.0.0",
             paging     : "2.1.0"
     ]
+
     dependencies = [
             "appcompat"                         : "androidx.appcompat:appcompat:1.1.0",
             "core-ktx"                          : "androidx.core:core-ktx:${versions.core_ktx}",

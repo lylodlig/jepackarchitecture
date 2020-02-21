@@ -17,6 +17,6 @@
 
         <variable
             name="info"
-            type="com.example.jepack_architecture.data.db.HomeArticleDetail" />
+            type="com.huania.eew_bid.data.db.HomeArticleDetail" />
     </data>
 </layout>

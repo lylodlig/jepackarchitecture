@@ -1,4 +1,4 @@
-package com.example.jepack_architecture
+package com.huania.eew_bid
 
 import org.junit.Test
 
