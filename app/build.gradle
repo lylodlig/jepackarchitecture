@@ -26,7 +26,7 @@ android {
 
     signingConfigs {
         release {
-            File strFile = new File("../eew.keystore")
+            File strFile = new File("../eew.jks")
             storeFile file(strFile)
             storePassword "Meihuan2020"
             keyPassword "Meihuan2020"
@@ -34,7 +34,7 @@ android {
         }
 
         debug {
-            File strFile = new File("../eew.keystore")
+            File strFile = new File("../eew.jks")
             storeFile file(strFile)
             storePassword "Meihuan2020"
             keyPassword "Meihuan2020"
@@ -64,10 +64,17 @@ android {
         multiDexEnabled true
         javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
     }
+
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+            jni.srcDirs = []    //disable automatic ndk-build
+        }
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -77,26 +84,25 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
     implementation rootProject.ext.dependencies["appcompat"]
     implementation rootProject.ext.dependencies["core-ktx"]
-//    implementation rootProject.ext.dependencies["design"]
+    //    implementation rootProject.ext.dependencies["design"]
     implementation rootProject.ext.dependencies["rxjava2"]
     implementation rootProject.ext.dependencies["rxandroid"]
     implementation rootProject.ext.dependencies["room-runtime"]
     kapt rootProject.ext.dependencies["room-compiler"]
-//    implementation rootProject.ext.dependencies["room-rxjava2"]
+    //    implementation rootProject.ext.dependencies["room-rxjava2"]
     implementation rootProject.ext.dependencies["lifecycle-runtime"]
-//    implementation rootProject.ext.dependencies["lifecycle-java8"]
-//    implementation rootProject.ext.dependencies["lifecycle-compiler"]
+    //    implementation rootProject.ext.dependencies["lifecycle-java8"]
+    //    implementation rootProject.ext.dependencies["lifecycle-compiler"]
     implementation rootProject.ext.dependencies["lifecycle-viewmodel-ktx"]
     implementation rootProject.ext.dependencies["lifecycle-livedata-ktx"]
     implementation rootProject.ext.dependencies['paging']
-//    implementation rootProject.ext.dependencies["navigation-runtime"]
+    //    implementation rootProject.ext.dependencies["navigation-runtime"]
     implementation rootProject.ext.dependencies["navigation-runtime-ktx"]
-//    implementation rootProject.ext.dependencies["navigation-fragment"]
+    //    implementation rootProject.ext.dependencies["navigation-fragment"]
     implementation rootProject.ext.dependencies["navigation-fragment-ktx"]
-//    implementation rootProject.ext.dependencies["navigation-ui"]
+    //    implementation rootProject.ext.dependencies["navigation-ui"]
     implementation rootProject.ext.dependencies["navigation-ui-ktx"]
     implementation rootProject.ext.dependencies["retrofit-runtime"]
     implementation rootProject.ext.dependencies["retrofit-gson"]
@@ -105,4 +111,5 @@ dependencies {
     implementation rootProject.ext.dependencies["multidex"]
     implementation rootProject.ext.dependencies["utilcode"]
     implementation rootProject.ext.dependencies["viewpager2"]
+    implementation files('libs/BaiduLBS_Android.jar')
 }

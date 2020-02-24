@@ -6,9 +6,9 @@
     tools:context=".ui.home.Tab2Fragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/mapView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Tab2" />
+        android:layout_height="match_parent" />
 
 </FrameLayout>

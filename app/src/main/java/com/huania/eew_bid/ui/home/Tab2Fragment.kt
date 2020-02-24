@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.huania.eew_bid.R
+import kotlinx.android.synthetic.main.fragment_tab2.*
 
 /**
  * A simple [Fragment] subclass.
@@ -20,6 +21,11 @@ class Tab2Fragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_tab2, container, false)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        lifecycle.addObserver(MapLifeCycleObserver(mapView))
     }
 
     companion object {
